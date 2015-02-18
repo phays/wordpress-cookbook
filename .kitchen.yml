@@ -3,27 +3,14 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-  - name: ubuntu-10.04
-    run_list:
-      - recipe[apt]
-  - name: ubuntu-12.04
-    run_list:
-      - recipe[apt]
-  - name: ubuntu-14.04
-    run_list:
-      - recipe[apt]
-  - name: centos-6.5
-  - name: centos-5.10
+  - name: centos-6.6
+    driver:
+        box: chef/centos-6.6
+        box_url: chef/centos-6.6
+        network:
+        - ["private_network", { ip: "192.168.34.56" }]
 
 suites:
-  - name: default
-    run_list:
-      - recipe[wordpress]
-    attributes:
-      mysql:
-        server_root_password: "Please-Dont-Use-In-Production"
-        server_debian_password: "Please-Dont-Use-In-Production"
-        server_repl_password: "Please-Dont-Use-In-Production"
   - name: nginx
     run_list:
       - recipe[wordpress::nginx]

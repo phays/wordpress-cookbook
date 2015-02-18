@@ -14,9 +14,9 @@ recipe "WordPress::languages", "Install WordPress translation files"
 end
 
 depends "apache2", ">= 2.0.0"
-depends "database", ">= 1.6.0"
-depends "mysql", ">= 5.0.0"
-depends "mysql-chef_gem", ">= 0.0.2"
+depends "database", "= 2.3.1"
+depends "mysql", "~> 5.0"
+depends "mysql-chef_gem", "~> 0.0"
 depends "build-essential"
 depends "iis", ">= 1.6.2"
 depends "tar", ">= 0.3.1"
